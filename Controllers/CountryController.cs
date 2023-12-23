@@ -3,6 +3,7 @@
 namespace TechcareerDotnetBootcamp.Controllers
 {
     [Route("api/[controller]")]
+    [ApiController]
     public class CountryController : Controller
     {
         // GET: api/country
