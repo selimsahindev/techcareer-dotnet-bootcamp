@@ -3,7 +3,6 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using TechcareerDotnetBootcamp;
 
 #nullable disable
@@ -11,17 +10,15 @@ using TechcareerDotnetBootcamp;
 namespace TechcareerDotnetBootcamp.Migrations
 {
     [DbContext(typeof(TechCareerDbContext))]
-    [Migration("20240106134657_CreateInitial")]
-    partial class CreateInitial
+    [Migration("20240106182802_CreateInitialDB")]
+    partial class CreateInitialDB
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("ProductVersion", "6.0.25")
-                .HasAnnotation("Relational:MaxIdentifierLength", 63);
-
-            NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
+                .HasAnnotation("Relational:MaxIdentifierLength", 64);
 #pragma warning restore 612, 618
         }
     }

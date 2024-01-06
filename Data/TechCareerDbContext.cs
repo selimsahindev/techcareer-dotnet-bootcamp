@@ -1,21 +1,14 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using TechcareerDotnetBootcamp.Models;
 
 namespace TechcareerDotnetBootcamp
 {
     public class TechCareerDbContext : DbContext
     {
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        public DbSet<Employee> Employees { get; set; }
+
+        public TechCareerDbContext(DbContextOptions<TechCareerDbContext> options) : base(options)
         {
-            if (!optionsBuilder.IsConfigured)
-            {
-                var builder = new ConfigurationBuilder()
-                    .SetBasePath(Directory.GetCurrentDirectory())
-                    .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true);
-
-                IConfigurationRoot configuration = builder.Build();
-
-                optionsBuilder.UseNpgsql(configuration.GetConnectionString("DefaultConnection"));
-            }
         }
     }
 }
